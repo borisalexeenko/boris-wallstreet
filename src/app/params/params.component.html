@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="paramsContainer">
+    <div class="content">
+      <header class = header>
+        Настройки Биржи
+      </header>
+      <div class="form">
+        <form id="paramsForm" name="paramsForm" #form="ngForm" (ngSubmit)="onSubmit(form)" class="paramsForm">
+          <label for="startDate">Дата начала торгов</label>
+          <input id="startDate" type="datetime-local" name="startDate" #startDate="ngModel" [min]="getCurrentTime()"
+                 [(ngModel)]="start_time" required>
+          <br>
+          <label for="endDate">Дата окончания торгов</label>
+          <input id="endDate" type="datetime-local" name="endDate" #endDate="ngModel" [min]="getCurrentTime()"
+          [(ngModel)]="end_time" required>
+          <br>
+          <label for="timeout">Интервал времени</label>
+          <input type="time" id="timeout" name="timeout" #timeout="ngModel" [ngModel]="time_out" required>
+          <br>
+          <input type="submit" class="btn" form="paramsForm" value="Сохранить">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

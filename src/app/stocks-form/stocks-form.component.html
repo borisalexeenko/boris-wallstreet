@@ -1,0 +1,38 @@
+<div class="addingForm" *ngIf="isShown==true">
+  <header class="header">
+    <h2>Форма добавления</h2>
+  </header>
+  <div class="container">
+    <div>
+      <form class="stockForm" id="stockForm" name="stockForm" #form="ngForm" (ngSubmit)="onSubmit(form)" >
+        <label for="stockName">Название</label>
+        <input class="inputField" name="stockName" id="stockName" placeholder="Введите имя" type="text" [ngModel]="formData.name"
+               #stockName="ngModel">
+        <div *ngIf="stockName.invalid && stockName.touched" class="error">Неправильный ввод имени</div>
+        <label for="stockDistributionLaw">Закон Распределения</label>
+        <select name="stockDistributionLaw" id="stockDistributionLaw" [ngModel]="formData.distributionLaw" required #stockDistributionLaw="ngModel">
+          <option value="Равномерный">Равномерный</option>
+          <option value="Нормальный">Нормальный</option>
+          <option value="Биномиальный">биномиальный</option>
+        </select>
+        <div *ngIf="stockDistributionLaw.invalid && stockDistributionLaw.touched"
+             class="error">Неправильный закон распределения</div>
+        <br>
+        <label>Максимальное значение изменения</label>
+        <input name="stockMaxToChange" class="InputField" type="number" [ngModel]="formData.maxToChange"
+               required #stockMaxToChange="ngModel" placeholder="Максимальное значение изменения" [min]="0" pattern="^(?!-1+$)\d+$">
+        <div *ngIf="stockMaxToChange.invalid && (stockMaxToChange.touched)"
+             class="w3-panel w3-red">Неправильный ввод максимального значения для изменения</div>
+        <label for>Начальная цена</label>
+        <input name="stockStartPrice" type="number" class="inputField" [ngModel]="formData.startPrice"
+               required #stockStartPrice="ngModel" pattern="^(?!-1+$)\d+$" [min]="0" placeholder="начальная цена">
+        <div *ngIf="stockStartPrice.invalid && (stockStartPrice.touched)"
+             class="w3-panel w3-red">Неправильный ввод начальной цены</div>
+      </form>
+    </div>
+    <footer class="formFooter">
+      <input type="submit"  [disabled]="form.invalid" class="buttons" form="stockForm" value="Добавить">
+      <button class="buttons" (click)="closeForm()">Закрыть форму</button>
+    </footer>
+  </div>
+</div>

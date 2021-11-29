@@ -1,0 +1,27 @@
+<div class="addingForm" *ngIf="isShown==true">
+  <header class="header">
+    <h2>Форма добавления</h2>
+  </header>
+  <div class="container">
+    <div>
+      <form id="brokerForm" name="brokerForm" #form="ngForm" (ngSubmit)="onSubmit(form)" >
+        <label>Имя</label>
+        <input class="inputField" name="brokerName" placeholder="Введите имя" type="text" [ngModel]="formData.name"
+               #brokerName="ngModel">
+        <div *ngIf="brokerName.invalid && brokerName.touched" class="error">Неправильный ввод имени</div>
+        <label>Остаток средств</label>
+        <input class="inputField" name="brokerResource" placeholder="Сумма" type="number" [ngModel]="formData.resources"
+               #brokerResource="ngModel" [min]="0" pattern="^(?!-1+$)\d+$" >
+        <div *ngIf="brokerResource.invalid && brokerResource.touched"
+             class="error">Неправильный ввод запаса денежных средств</div>
+        <label>Ссылка на картинку</label>
+        <input name="brokerImageURL" class="InputField" type="text" [ngModel]="formData.imageURL"
+               placeholder="Ссылка на картинку">
+      </form>
+    </div>
+    <footer class="formFooter">
+      <input type="submit"  [disabled]="form.invalid" class="buttons" form="brokerForm" value="Добавить">
+      <button class="buttons" (click)="closeForm()">Закрыть форму</button>
+    </footer>
+  </div>
+</div>

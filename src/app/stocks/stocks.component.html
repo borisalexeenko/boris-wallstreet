@@ -1,0 +1,28 @@
+<div class="stocks">
+  <div class="stockContainer">
+    <div *ngFor="let stock of stocks; let i = index" class="stockCard">
+      <p>{{ i + 1 }}. {{stock.name}} </p>
+      <p>Закон распределения: {{stock.distributionLaw}} </p>
+      <p>Максимальное изменение: {{stock.maxToChange}} </p>
+      <p>Начлаьная цена: {{stock.startPrice}} </p>
+      <div class="buttons">
+        <div>
+          <button class="btn" (click)="removeStock(stock)">Удалить <br> акцию</button>
+        </div>
+        <div>
+          <button class="btn" (click)="showEditForm(stock)">Редактировать <br> акцию</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addingButton">
+    <footer>
+      <button class="btn" (click)="showAddingForm()">
+        Добавить акцию
+      </button>
+    </footer>
+  </div>
+  <div class="addingForm">
+    <app-stocks-form></app-stocks-form>
+  </div>
+</div>

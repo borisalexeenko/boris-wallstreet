@@ -1,0 +1,29 @@
+.displayContainer {
+  display: flex;
+  width: 91%;
+  height: 75px;
+  z-index: 3;
+  margin-left: auto;
+  flex-direction: column;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #660099;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.bar {
+  display: flex;
+}
+
+.bar a {
+  text-decoration: none;
+  padding: 0 10px;
+  color: white;
+}

@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  margin-right: 30px;
+}
+
+input {
+  background: white;
+  padding: 1em;
+  width: 80%;
+  display: flex;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.buttons {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: darkslateblue;
+  margin: 10px auto;
+  border-radius: 5px;
+}

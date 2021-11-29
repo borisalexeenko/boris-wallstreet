@@ -1,0 +1,31 @@
+<div class="editingForm" *ngIf="isShown==true">
+  <div class="modal">
+    <div class="modal-content">
+      <form id="brokerForm" name="brokerForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <label>Новое имя</label>
+        <input class="inputField" name="brokerName" placeholder="Введите имя" type="text" [ngModel]="formData.name"
+               #brokerName="ngModel">
+        <div *ngIf="brokerName.invalid && (brokerName.touched)" class="error">Неправильный ввод
+          имени
+        </div>
+        <label>Новое кол-во средств</label>
+        <input class="inputField" name="brokerResource" placeholder="Сумма" type="number" [ngModel]="formData.resources"
+               #brokerResource="ngModel" [min]="0" pattern="^(?!-1+$)\d+$">
+        <div *ngIf="brokerResource.invalid && (brokerResource.touched)"
+             class="error">Неправильный ввод запаса денежных средств
+        </div>
+        <label>Новая картинка</label>
+        <input name="brokerImageURL" class="InputField" type="text" [ngModel]="formData.imageURL"
+               placeholder="Ссылка на картинку">
+        <footer>
+          <div class="editButton">
+            <input type="submit" [disabled]="form.invalid" class="buttons" form="brokerForm" value="Сохранить">
+          </div>
+          <div class="close">
+            <button class='buttons' (click)="close()">Закрыть</button>
+          </div>
+        </footer>
+      </form>
+    </div>
+  </div>
+</div>

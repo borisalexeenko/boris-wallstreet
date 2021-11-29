@@ -1,0 +1,30 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+<div class="brokers">
+  <div class="brokersContainer">
+    <div *ngFor="let broker of brokers; let i = index" class="brokerCard">
+      <p>{{ i + 1 }}. {{broker.name}} </p>
+      <p>Остаток средств: {{broker.resources}} </p>
+      <img src="{{broker.imageURL}}" alt="{{broker.name}}">
+      <div class="buttons">
+        <div>
+          <button class="btn" (click)="removeBroker(broker)">Удалить <br> брокера</button>
+        </div>
+        <div>
+          <button class="btn" (click)="editBroker(broker)">Редактировать <br> брокера</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="addingButton">
+    <footer>
+      <button (click)="showAddBrokerForm()" class="btn">
+        Добавить брокера
+      </button>
+    </footer>
+  </div>
+  <div class="addingForm">
+    <app-broker-form></app-broker-form>
+  </div>
+</div>
